@@ -81,7 +81,6 @@ setTimeout(() => {
       $('.path').css('display', 'block');
       $('.path').addClass('active');
       $('.slider__price').addClass('active')
-      $('.slider__price').addClass('end-prise')
       $('.slider__title').addClass('active')
 
       setTimeout(() => {
