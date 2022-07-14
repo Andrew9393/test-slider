@@ -25,7 +25,7 @@ class SliderItem {
     items.then(res => {
       res.forEach(({image_url, model, link, price}) => {
         let temp =  `
-        <a href="${link}">
+        <a href="${link}" target="_blanc">
         <div class="slider__item">
           <div class="slider__logo">
             <svg width="100" height="36" viewBox="0 0 99 40" fill="none" xmlns="http://www.w3.org/2000/svg">
