@@ -1,0 +1,198 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+
+.slider {
+  max-width:300px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  // .slider__item
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #9EA3AB 75%, #E3E3E3 100%);
+  }
+
+  // .slider__logo
+
+  &__logo {
+    padding: 30px 0 0 0;
+    margin-bottom: 60px;
+  }
+
+  // .slider__body
+
+  &__body {
+    flex: 1 1 auto;
+    position: relative;
+  }
+
+  // .slider__title
+
+  &__title {
+    position: relative;
+    font-size: 32px;
+    left: 800px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease;
+    
+  }
+
+  // .slider__price
+
+  &__price {
+    position: absolute;
+    margin-top: 26px;
+    left: 50%;
+    transform: translateX(-50%) scale(2.5);
+    // transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0px 20px;
+    background: #FF0000;
+    z-index: 2;
+    opacity: 0.01;
+
+    &.active{
+      transform: translateX(-50%) scale(1) rotateZ(360deg);
+      transition: all 1s ease;
+      opacity: 1;
+
+    }
+  }
+
+  .slider__title.active{
+    visibility: visible;
+    opacity: 1;
+    left: 0;
+  }
+    // animation: rotatt 1s forwards;
+
+  // @keyframes rotatt {
+  //   0% {
+  //     transform: translateX(-50%) scale(3) rotateX(0deg);
+  //   }
+  //   100% {
+  //     transform: translateX(-50%) scale(1) rotateX(360deg);
+  //   }
+  // }
+  // @keyframes endPrice {
+  //   99% {
+  //     transform: translateX(-50%) scale(1) rotateX(360deg);
+  //   }
+  //   100% {
+  //     transform: translateX(-50%) rotateZ(18deg);
+  //     transform-origin: top left;
+  //   }
+  // }
+
+  // .slider__img
+
+  &__img {
+    position: relative;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  // .slider__btn
+
+  &__btn {
+    margin: 0 0 40px 0;
+  }
+}
+
+.btn{
+  display: inline-block;
+    padding: 4px 24px 8px;
+    position: relative;
+    color: #fff;
+    border-radius: 3px;
+    background: #000;
+    overflow: hidden;
+    animation: jump 3s forwards;
+    animation-iteration-count:infinite;
+
+}
+
+.end-price.active{
+  transform: scale(1) rotateZ(380deg);
+  transform-origin: top left;
+}
+
+
+.path.active {
+  fill: transparent;
+  stroke-dasharray: 1000;
+  animation: dash 4.5s linear;
+}
+
+@keyframes dash {
+  0%{
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+.btn:after, .btn:after { 
+  animation: sheen 2s forwards;
+  animation-iteration-count:infinite;
+   animation-fill-mode: forwards; 
+}
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+@keyframes jump {
+  0%{
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0px, 20px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
