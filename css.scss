@@ -196,3 +196,9 @@ a{
   }
 }
 
+@media screen and (max-width: 525px){
+
+    body, .slider, .slider__item{
+      height: 100vh;
+    }
+}

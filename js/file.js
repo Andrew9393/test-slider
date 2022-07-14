@@ -62,7 +62,7 @@ setTimeout(() => {
   $('.slider').slick({
     arrows:false,
     Infinity:true,
-    autoplay: true
+    // autoplay: true
   });
 }, 500);
   
