@@ -36,7 +36,7 @@ class SliderItem {
             <div class="slider__title active">
               ${model}
             </div>
-            <div class="slider__price" >
+            <div class="slider__price active" >
               € ${price}
               <span class="price"></span>
             </div>
@@ -62,14 +62,9 @@ setTimeout(() => {
   $('.slider').slick({
     arrows:false,
     Infinity:true,
-    // autoplay: true
+    autoplay: true
   });
 }, 500);
-
-  // const arrText = [
-  //   '254.99'
-  // ]
-
   
   $('.slider__price').addClass('active')
 
@@ -95,86 +90,5 @@ setTimeout(() => {
         document.querySelector('.path').style.strokDashoffset = "1000"
       }, 1200)
   });
-
-  // const typeText = () => {
-  //   console.log('pr');
-  //   let line = 0;
-  //   let count = 0;
-  //   let out = '';
-  //   let htmlOut = document.querySelector('.slick-active .price')
-  //   console.log(htmlOut)
-  //   this.setTimeout(() => {
-  //       function typeLine(){
-  //         console.log('pr2');
-  //         let interval = setTimeout(() => {
-  //           out += arrText[line][count];
-  //           htmlOut.innerText = out;
-  //           count++;
-
-  //           if(count >= arrText[line].length){
-  //             count = 0;
-  //             line++
-  //             if(line == arrText.length){
-  //               clearTimeout(interval)
-  //               return true;
-  //             }
-  //           }
-
-  //           typeLine();
-  //         }, 150)
-  //       }
-  //       typeLine()
-  //     }, 1200)
-  // }
-
-
-  
-    // const nike = function() {
-    //   // anime({
-    //   //   targets: '.line-drawing-demo .lines path', 
-    //   //   strokeDashoffset: [anime.setDashoffset, 0],
-    //   //   easing: 'easeInOutSine',
-    //   //   duration: 5000,
-    //   //   delay: function(el, i) { return i * 250 },
-    //   //   direction: 'alternate',
-    //   //   loop: true,
-    //   // });
-
-    //   // setTimeout(() => {
-    //   //   document.querySelector('.path').style.fill = "black"
-    //   //   document.querySelector('.path').style.strokDashoffset = "1000"
-    //   // }, 1200)
-
-    //   // setTimeout(() => {
-    //   //   forText() 
-    //   // },800)
-
-    //   // setTimeout(() => {
-    //   //   endForPrice()
-    //   // },3400)
-    // }
-
- 
-  
-
-  // const startCounting = () => {
- 
-  //   const sliderPrice = document.querySelector('.slider__price')
-  //   sliderPrice.style.transform = "translateX(-50%) scale(1) rotateX(360deg)";
-  //   sliderPrice.style.transition = "all 0.4s ease"
-  //   }
-    
-  //   startCounting()
-
-    // const forPrice = () => {
-    //   $('.slider__price').addClass('active')
-    //   // $('.slider__price').css('transform', 'translateX(-50%) scale(1) rotateZ(360deg)')
-    //   // $('.slider__price').css('transition', 'all 1s ease')
-    //     // anime({
-    //     //   targets: sliderTitle,
-    //     //   translate: -400
-    //     // }) 
-    //   }
-
 
 })
