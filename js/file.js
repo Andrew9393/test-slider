@@ -1,5 +1,5 @@
 
- const getResours = async(url) => {
+const getResours = async(url) => {
   const res = await fetch(url)
   
   if(!res.ok){
@@ -61,33 +61,39 @@ sliderItem.render()
 setTimeout(() => {
   $('.slider').slick({
     arrows:false,
-    Infinity:true,
+    infinite:true,
     autoplay: true
   });
 }, 500);
   
   $('.slider__price').addClass('active')
 
-  $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-      $('.path').css('display', 'none');
-      $('.slider__price').removeClass('active')
-      $('.slider__title').removeClass('active')
-
-      document.querySelector('.price').innerHTML = ''
-      
-    });
+  $('.slider').on('beforeChange', function(event, { slideCount: count }, currentSlide, nextSlide){
+    let selectors = [nextSlide, nextSlide - count, nextSlide + count].map(n => `[data-slick-index="${n}"]`).join(', ');
+    $('.slick-now').removeClass('slick-now');
+    $('.path').css('display', 'none');
+    $('.slider__price').removeClass('active')
+    $('.slider__title').removeClass('active')
+    
+    $('.slick-now .price').innerHTML = ''
+    $(selectors).addClass('slick-now');
+  
+  });
+  
+  $('[data-slick-index="0"]').addClass('slick-now');
     
     $('.slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-      $('.path').css('display', 'block');
-      $('.path').addClass('active');
-      $('.slider__price').addClass('active')
-      $('.slider__title').addClass('active')
+      $('.slick-now .path').css('display', 'block');
+      $('.slick-now .path').addClass('active');
+      $('.slick-now .slider__price').addClass('active')
+      $('.slick-now .slider__title').addClass('active')
 
       setTimeout(() => {
-        $('.path').removeClass('active')
-        document.querySelector('.path').style.fill = "black"
-        document.querySelector('.path').style.strokDashoffset = "1000"
+        $('.slick-now .path').removeClass('active')
+        $('.slick-now .path').css('fill', "black")
+        $('.slick-now .path').css("strokDashoffset", "1000")
       }, 1200)
+
   });
 
 })
